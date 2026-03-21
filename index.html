@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Rutuja 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* BODY */
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+
+background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #fcb69f);
+background-size: 400% 400%;
+animation: gradientMove 12s ease infinite;
+
+display:flex;
+justify-content:center;
+align-items:flex-start;
+min-height:100vh;
+padding:20px;
+overflow-x:hidden;
+
+transition: all 0.6s ease;
+}
+
+@keyframes gradientMove {
+0% {background-position: 0% 50%;}
+50% {background-position: 100% 50%;}
+100% {background-position: 0% 50%;}
+}
+
+/* CONTAINER */
+.container{
+background: rgba(255,255,255,0.65);
+backdrop-filter: blur(18px);
+padding:40px;
+border-radius:30px;
+box-shadow:0 25px 80px rgba(0,0,0,0.25);
+max-width:700px;
+width:100%;
+text-align:center;
+margin-top:40px;
+margin-bottom:40px;
+
+max-height:90vh;
+overflow-y:auto;
+}
+
+/* MESSAGE */
+.birthday-message{
+font-size:1.1rem;
+color:#333;
+line-height:1.8;
+padding:20px;
+background:rgba(255,255,255,0.5);
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ❤️ HEARTBEAT */
+.name{
+font-weight:600;
+animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+0%,100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+}
+
+/* TYPING LINE */
+#songLine{
+margin:25px 0;
+font-size:1.2rem;
+color:#e60073;
+font-weight:600;
+min-height:30px;
+}
+
+/* VIDEO */
+.video-container{
+width:100%;
+max-width:340px;
+margin:20px auto;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+.video-container video{
+width:100%;
+border-radius:20px;
+transition:0.3s;
+}
+
+.video-container video:hover{
+box-shadow:0 0 30px #ff1493;
+}
+
+/* BUTTON */
+.cake-link{
+margin-top:30px;
+display:inline-block;
+background:linear-gradient(45deg,#ff2e7a,#ff6fa5);
+color:white;
+padding:14px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+box-shadow:0 10px 25px rgba(255,20,147,0.4);
+cursor:pointer;
+border:none;
+}
+
+.cake-link:hover{
+transform:translateY(-3px) scale(1.05);
+box-shadow:0 15px 35px rgba(255,20,147,0.6);
+}
+
+/* FLOAT */
+.float{
+position:fixed;
+top:100vh;
+font-size:20px;
+animation:floatUp 5s linear forwards;
+pointer-events:none;
+}
+
+@keyframes floatUp{
+from{transform:translateY(0);}
+to{transform:translateY(-120vh);}
+}
+
+/* SPARKLES */
+.sparkle{
+position:fixed;
+font-size:12px;
+animation:fadeSpark 2s linear forwards;
+pointer-events:none;
+}
+
+@keyframes fadeSpark{
+0%{opacity:1;}
+100%{opacity:0;}
+}
+
+/* 💌 POPUP */
+#popupMessage{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.popup-box{
+background:white;
+padding:25px;
+border-radius:20px;
+text-align:center;
+max-width:300px;
+animation:pop 0.4s ease;
+}
+
+@keyframes pop{
+from{transform:scale(0.7);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="birthday-message">
+<p>
+<span class="name">Happy Birthday, Rutuja (Luna) 💖</span><br><br>
+Today is all about celebrating the amazing person you are — your beautiful smile, your calm presence, and the warmth you bring into every moment. You have this quiet magic about you that makes everything feel a little brighter and a little more special.
+<br><br>
+May your day be filled with happiness, laughter, and all the little things you love — from sweet strawberries 🍓 to peaceful naps 😴 and everything in between.
+<br><br>
+Keep being the wonderful person you are… the world feels better with you in it. ✨
+</p>
+</div>
+
+<div id="songLine"></div>
+
+<div class="video-container">
+<video controls playsinline>
+<source src="voila.mp4" type="video/mp4">
+</video>
+</div>
+
+<button onclick="openMessage()" class="cake-link">
+💌 One More Thing...
+</button>
+
+<button onclick="goToCake()" class="cake-link">
+🎂 Go to Cake Celebration 🎂
+</button>
+
+</div>
+
+<!-- 💌 UPDATED POPUP -->
+<div id="popupMessage">
+<div class="popup-box">
+
+<p style="color:#ff1493; font-weight:600;">
+You deserve the happiest moments always 💖
+</p>
+
+<p style="margin-top:12px; font-size:0.9rem; color:#666; line-height:1.6;">
+♈ Being an Aries, you have this rare mix of strength and softness — a warm energy that makes people feel comfortable and a presence that stays in their heart. You don’t even try, yet you make everything feel a little more special ✨
+</p>
+
+<br>
+<button onclick="closeMessage()">Close</button>
+
+</div>
+</div>
+
+<script>
+
+/* TYPEWRITER */
+let text="Moving forward… here’s one of your favorite songs 🎶";
+let i=0;
+
+function typeSong(){
+if(i<text.length){
+document.getElementById("songLine").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typeSong,40);
+}
+}
+window.onload=typeSong;
+
+/* CLEAN FLOAT */
+setInterval(()=>{
+if(document.querySelectorAll('.float').length > 8) return;
+
+let el=document.createElement("div");
+el.className="float";
+el.innerHTML = Math.random() > 0.5 ? "🍓" : "💖";
+el.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(el);
+setTimeout(()=>el.remove(),5000);
+},1500);
+
+/* CLEAN SPARKLES */
+setInterval(()=>{
+if(document.querySelectorAll('.sparkle').length > 6) return;
+
+let sp=document.createElement("div");
+sp.className="sparkle";
+sp.innerHTML="✨";
+sp.style.left=Math.random()*100+"vw";
+sp.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(sp);
+setTimeout(()=>sp.remove(),2000);
+},800);
+
+/* POPUP */
+function openMessage(){
+document.getElementById("popupMessage").style.display="flex";
+}
+function closeMessage(){
+document.getElementById("popupMessage").style.display="none";
+}
+
+/* CINEMATIC TRANSITION */
+function goToCake(){
+
+let overlay=document.createElement("div");
+overlay.style.position="fixed";
+overlay.style.top="0";
+overlay.style.left="0";
+overlay.style.width="100%";
+overlay.style.height="100%";
+overlay.style.background="rgba(255,105,180,0.2)";
+overlay.style.backdropFilter="blur(10px)";
+overlay.style.zIndex="9999";
+overlay.style.opacity="0";
+overlay.style.transition="0.6s ease";
+
+document.body.appendChild(overlay);
+
+setTimeout(()=>{
+overlay.style.opacity="1";
+},50);
+
+document.body.style.transform="scale(1.05)";
+
+setTimeout(()=>{
+window.location.href="cake-cutting.html";
+},800);
+}
+
+</script>
+
+</body>
+</html>

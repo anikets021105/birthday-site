@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cake Time 🎂</title>
+
+<style>
+
+/* BODY */
+body{
+margin:0;
+padding:20px;
+font-family:'Segoe UI', sans-serif;
+background:#e89a9a;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+/* CONTAINER */
+.container{
+background:white;
+padding:50px;
+border-radius:30px;
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
+width:90%;
+max-width:800px;
+text-align:center;
+}
+
+/* TITLE */
+h1{
+color:#ff1493;
+}
+
+/* CAKE */
+.cake{
+font-size:160px;
+margin:20px 0;
+}
+
+/* BUTTON */
+button{
+background:#ff2e7a;
+color:white;
+border:none;
+padding:15px 30px;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+}
+
+button:hover{
+background:#e6005c;
+}
+
+/* CANDLES */
+.candles{
+font-size:40px;
+margin:10px 0;
+}
+
+/* STRAWBERRY */
+.strawberry{
+position:fixed;
+top:-30px;
+font-size:22px;
+opacity:0.7;
+animation:fallStrawberry 6s linear forwards;
+}
+
+@keyframes fallStrawberry{
+0%{transform:translateY(-50px);}
+100%{transform:translateY(100vh);}
+}
+
+/* FULLSCREEN VIDEO */
+#fullVideo{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+#fullVideo video{
+width:90%;
+max-height:90%;
+border-radius:20px;
+}
+
+#closeBtn{
+position:absolute;
+top:20px;
+right:30px;
+font-size:25px;
+background:none;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎂 Cake Time!</h1>
+<p>Make a wish and blow the candles ✨</p>
+
+<div class="candles" id="candles">🕯️ 🕯️ 🕯️</div>
+
+<div class="cake">🎂</div>
+
+<button onclick="blowCandles()">Blow Candles</button>
+
+</div>
+
+<!-- FULLSCREEN VIDEO -->
+<div id="fullVideo">
+
+<video id="mainVideo" autoplay controls>
+<source src="surprise.mp4" type="video/mp4">
+</video>
+
+<button id="closeBtn" onclick="closeVideo()">✖</button>
+
+</div>
+
+<script>
+
+function blowCandles(){
+
+/* remove candles */
+document.getElementById("candles").innerHTML="💨 💨 💨";
+
+/* strawberries animation */
+for(let i=0;i<15;i++){
+let s=document.createElement("div");
+s.className="strawberry";
+s.innerHTML="🍓";
+s.style.left=Math.random()*100+"%";
+document.body.appendChild(s);
+
+setTimeout(()=>s.remove(),6000);
+}
+
+/* show fullscreen video */
+setTimeout(()=>{
+
+const fullVideo=document.getElementById("fullVideo");
+const video=document.getElementById("mainVideo");
+
+fullVideo.style.display="flex";
+
+/* autoplay attempt */
+video.play().catch(()=>{});
+
+/* fallback click */
+video.addEventListener("click", ()=>{
+video.play();
+});
+
+},2000);
+
+}
+
+/* close video */
+function closeVideo(){
+document.getElementById("fullVideo").style.display="none";
+document.getElementById("mainVideo").pause();
+}
+
+</script>
+
+</body>
+</html>
